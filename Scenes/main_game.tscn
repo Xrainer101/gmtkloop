@@ -1,0 +1,80 @@
+[gd_scene load_steps=8 format=3 uid="uid://tq115vvlrdls"]
+
+[ext_resource type="PackedScene" uid="uid://da22wgk8ysd1k" path="res://Scenes/Player.tscn" id="1_l756w"]
+[ext_resource type="PackedScene" uid="uid://d30vlb7o58tk3" path="res://Scenes/Platform.tscn" id="2_pu3va"]
+[ext_resource type="PackedScene" uid="uid://db6sliq1hn258" path="res://Scenes/coin.tscn" id="3_0e3vx"]
+[ext_resource type="PackedScene" uid="uid://bdjid4r8e83sc" path="res://Scenes/test_interactable.tscn" id="4_6j5ir"]
+
+[sub_resource type="Animation" id="Animation_pu3va"]
+resource_name = "PlatformMove"
+length = 1.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(-57, -44), Vector2(76, -44)]
+}
+
+[sub_resource type="Animation" id="Animation_0e3vx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-57, -44)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6j5ir"]
+_data = {
+&"PlatformMove": SubResource("Animation_pu3va"),
+&"RESET": SubResource("Animation_0e3vx")
+}
+
+[node name="MainGame" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_l756w")]
+position = Vector2(1, -12)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(4, 4)
+
+[node name="Platform" parent="." instance=ExtResource("2_pu3va")]
+position = Vector2(0, 25)
+scale = Vector2(3.08, 0.4)
+
+[node name="Platform2" parent="." instance=ExtResource("2_pu3va")]
+position = Vector2(-57, -44)
+scale = Vector2(0.519999, 0.0400009)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platform2"]
+libraries = {
+&"": SubResource("AnimationLibrary_6j5ir")
+}
+autoplay = "PlatformMove"
+
+[node name="Coin" parent="." instance=ExtResource("3_0e3vx")]
+position = Vector2(-65, -19)
+
+[node name="Coin2" parent="." instance=ExtResource("3_0e3vx")]
+position = Vector2(-99, -20)
+
+[node name="TestInteractable" parent="." instance=ExtResource("4_6j5ir")]
+position = Vector2(85, -14)
+scale = Vector2(0.2, 0.2)
+
+[node name="TestInteractable2" parent="." instance=ExtResource("4_6j5ir")]
+position = Vector2(30, -14)
+scale = Vector2(0.2, 0.2)

@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdjid4r8e83sc"]
+
+[ext_resource type="Texture2D" uid="uid://d0ct5dn5eq6s2" path="res://icon.svg" id="1_jeyi2"]
+[ext_resource type="Script" uid="uid://bis0fif8xycig" path="res://Scripts/test_interactable.gd" id="2_qa54l"]
+[ext_resource type="PackedScene" uid="uid://bb7arfd8yexh6" path="res://Scenes/interaction_area.tscn" id="2_vypad"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qa54l"]
+radius = 187.003
+
+[node name="TestInteractable" type="Sprite2D"]
+texture = ExtResource("1_jeyi2")
+script = ExtResource("2_qa54l")
+
+[node name="InteractionArea" parent="." instance=ExtResource("2_vypad")]
+action_name = "test"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_qa54l")
