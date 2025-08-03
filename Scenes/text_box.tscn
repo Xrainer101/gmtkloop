@@ -1,0 +1,77 @@
+[gd_scene load_steps=7 format=3 uid="uid://nxftbch7p4o7"]
+
+[ext_resource type="Script" uid="uid://k3stvt00aabk" path="res://Scripts/text_box.gd" id="1_ot2p7"]
+[ext_resource type="Texture2D" uid="uid://7j6vtyx62ns7" path="res://Assets/Sprites/TextBox.png" id="2_w6krc"]
+[ext_resource type="Texture2D" uid="uid://c5djwddio0u8g" path="res://Assets/Sprites/TextBoxTail.png" id="3_1q4u4"]
+[ext_resource type="FontFile" uid="uid://d0pmk2uj4ebvt" path="res://Assets/Fonts/PixelOperator8.ttf" id="3_8gqem"]
+[ext_resource type="Texture2D" uid="uid://dsfm766x2eyik" path="res://Assets/Sprites/UpsideDownWhiteTriangle.png" id="4_2l2j4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1q4u4"]
+font = ExtResource("3_8gqem")
+font_size = 8
+
+[node name="TextBox" type="MarginContainer"]
+offset_right = 32.0
+offset_bottom = 32.0
+script = ExtResource("1_ot2p7")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_w6krc")
+region_rect = Rect2(0, 0, 48, 48)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="Control" type="Control" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="NinePatchRect/Control"]
+position = Vector2(20, 46)
+texture = ExtResource("3_1q4u4")
+
+[node name="Control2" type="Control" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="NextIndicator" type="Sprite2D" parent="NinePatchRect/Control2"]
+visible = false
+position = Vector2(-4.5, -3)
+scale = Vector2(0.5625, 0.5)
+texture = ExtResource("4_2l2j4")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_1q4u4")
+horizontal_alignment = 1
+
+[node name="LetterDisplayTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="timeout" from="LetterDisplayTimer" to="." method="_on_letter_display_timer_timeout"]

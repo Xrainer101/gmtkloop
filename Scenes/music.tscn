@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://6phjj6rxlfyt"]
+
+[ext_resource type="AudioStream" uid="uid://boydflct7kd5w" path="res://Assets/Sounds/HolyAmbience.wav" id="1_fbmny"]
+
+[node name="Music" type="AudioStreamPlayer2D"]
+rotation = -1.5708
+scale = Vector2(0.319998, 0.0400009)
+stream = ExtResource("1_fbmny")
+autoplay = true
+bus = &"Music"

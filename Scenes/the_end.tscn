@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8073p3fo8g4b"]
+
+[ext_resource type="Script" uid="uid://bmegt70wrhgm4" path="res://Scripts/the_end.gd" id="1_0cvmb"]
+[ext_resource type="FontFile" uid="uid://d0pmk2uj4ebvt" path="res://Assets/Fonts/PixelOperator8.ttf" id="1_dwy7s"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0cvmb"]
+font = ExtResource("1_dwy7s")
+
+[node name="TheEnd" type="Node2D"]
+script = ExtResource("1_0cvmb")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.0
+offset_top = -11.5
+offset_right = 46.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "The End"
+label_settings = SubResource("LabelSettings_0cvmb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

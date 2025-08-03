@@ -1,26 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://bul8a3rn5sg8e"]
+[gd_scene load_steps=4 format=3 uid="uid://bul8a3rn5sg8e"]
 
 [ext_resource type="PackedScene" uid="uid://bb7arfd8yexh6" path="res://Scenes/Interactables/interaction_area.tscn" id="1_olwfu"]
-[ext_resource type="Texture2D" uid="uid://d0ct5dn5eq6s2" path="res://icon.svg" id="2_8l2uc"]
 [ext_resource type="Script" uid="uid://b6n38p8s2h8h0" path="res://Scripts/door.gd" id="2_j2o8d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ab4ky"]
 size = Vector2(131.034, 131.034)
 
 [node name="Door" type="Node2D"]
-position = Vector2(0, -10)
-scale = Vector2(0.29, 0.29)
 script = ExtResource("2_j2o8d")
 
 [node name="InteractionArea" parent="." instance=ExtResource("1_olwfu")]
-position = Vector2(0, -31.0345)
+position = Vector2(0, -31)
 action_name = "enter"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
 position = Vector2(5.13833e-07, -7.7075e-06)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_ab4ky")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -31.0345)
-texture = ExtResource("2_8l2uc")
