@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b8073p3fo8g4b"]
+[gd_scene load_steps=5 format=3 uid="uid://b8073p3fo8g4b"]
 
 [ext_resource type="Script" uid="uid://bmegt70wrhgm4" path="res://Scripts/the_end.gd" id="1_0cvmb"]
 [ext_resource type="FontFile" uid="uid://d0pmk2uj4ebvt" path="res://Assets/Fonts/PixelOperator8.ttf" id="1_dwy7s"]
+[ext_resource type="AudioStream" uid="uid://c777bdytxdb4v" path="res://Assets/Sounds/explosion.wav" id="3_ekukb"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0cvmb"]
 font = ExtResource("1_dwy7s")
@@ -41,5 +42,10 @@ text = "The End"
 label_settings = SubResource("LabelSettings_0cvmb")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ekukb")
+autoplay = true
+bus = &"SFX"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
