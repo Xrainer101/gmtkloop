@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgny6w6gryay4"]
+
+[ext_resource type="PackedScene" uid="uid://d30vlb7o58tk3" path="res://Scenes/Platform.tscn" id="1_6idp7"]
+[ext_resource type="PackedScene" uid="uid://da22wgk8ysd1k" path="res://Scenes/Player.tscn" id="2_rx0dc"]
+[ext_resource type="PackedScene" uid="uid://bul8a3rn5sg8e" path="res://Scenes/Interactables/door.tscn" id="3_rx0dc"]
+
+[node name="test_room" type="Node2D"]
+
+[node name="Platform" parent="." instance=ExtResource("1_6idp7")]
+position = Vector2(0, 36)
+scale = Vector2(2.32, 0.4)
+
+[node name="Player" parent="." instance=ExtResource("2_rx0dc")]
+position = Vector2(55, 1)
+
+[node name="Door" parent="." instance=ExtResource("3_rx0dc")]
+position = Vector2(54, 9.53674e-07)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -19)
+scale = Vector2(0.755, 0.755)
+zoom = Vector2(4, 4)
+
+[node name="Platform2" parent="." instance=ExtResource("1_6idp7")]
+position = Vector2(146, -20)
+rotation = -1.5708
+scale = Vector2(1.28, 0.24)
+
+[node name="Platform3" parent="." instance=ExtResource("1_6idp7")]
+position = Vector2(-146, -20)
+rotation = 1.5708
+scale = Vector2(1.28, 0.24)

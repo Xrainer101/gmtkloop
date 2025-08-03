@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://d0ct5dn5eq6s2" path="res://icon.svg" id="1_jeyi2"]
 [ext_resource type="Script" uid="uid://bis0fif8xycig" path="res://Scripts/test_interactable.gd" id="2_qa54l"]
-[ext_resource type="PackedScene" uid="uid://bb7arfd8yexh6" path="res://Scenes/interaction_area.tscn" id="2_vypad"]
+[ext_resource type="PackedScene" uid="uid://bb7arfd8yexh6" path="res://Scenes/Interactables/interaction_area.tscn" id="2_vypad"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qa54l"]
 radius = 187.003

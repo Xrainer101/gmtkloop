@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://da22wgk8ysd1k"]
+[gd_scene load_steps=6 format=3 uid="uid://da22wgk8ysd1k"]
 
 [ext_resource type="Script" uid="uid://b0pqokr7ienyo" path="res://Scripts/player.gd" id="1_kyqiw"]
 [ext_resource type="Texture2D" uid="uid://bncjs8tb1i325" path="res://Assets/Sprites/8-bit Ringy.png" id="1_rpqav"]
+[ext_resource type="PackedScene" uid="uid://8a6pybxlgjfy" path="res://Scenes/Interactables/interaction_manager.tscn" id="3_gntrk"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kyqiw"]
 animations = [{
@@ -29,3 +30,5 @@ sprite_frames = SubResource("SpriteFrames_kyqiw")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_gntrk")
+
+[node name="InteractionManager" parent="." instance=ExtResource("3_gntrk")]

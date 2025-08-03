@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4qgqw2a03h3g"]
+
+[ext_resource type="PackedScene" uid="uid://d30vlb7o58tk3" path="res://Scenes/Platform.tscn" id="1_isdhb"]
+[ext_resource type="PackedScene" uid="uid://da22wgk8ysd1k" path="res://Scenes/Player.tscn" id="2_o4e7s"]
+[ext_resource type="PackedScene" uid="uid://bul8a3rn5sg8e" path="res://Scenes/Interactables/door.tscn" id="3_olbfk"]
+
+[node name="test_room2" type="Node2D"]
+
+[node name="Platform" parent="." instance=ExtResource("1_isdhb")]
+position = Vector2(0, 46)
+scale = Vector2(4.48, 0.719999)
+
+[node name="Player" parent="." instance=ExtResource("2_o4e7s")]
+position = Vector2(-102, -13)
+scale = Vector2(1, 1)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+scale = Vector2(0.3322, 0.302)
+zoom = Vector2(4, 4)
+limit_left = -302
+limit_right = 302
+limit_bottom = 46
+
+[node name="Door" parent="." instance=ExtResource("3_olbfk")]
+position = Vector2(-102, -10)
+
+[node name="Platform2" parent="." instance=ExtResource("1_isdhb")]
+position = Vector2(303, -48)
+rotation = -1.5708
+scale = Vector2(2.12, 0.24)
+
+[node name="Platform3" parent="." instance=ExtResource("1_isdhb")]
+position = Vector2(-302, -48)
+rotation = 1.5708
+scale = Vector2(2.12, 0.24)

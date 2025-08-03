@@ -1,16 +1,16 @@
 [gd_scene load_steps=4 format=3 uid="uid://8a6pybxlgjfy"]
 
-[ext_resource type="FontFile" uid="uid://d0pmk2uj4ebvt" path="res://Assets/Fonts/PixelOperator8.ttf" id="1_g2bjo"]
-[ext_resource type="Script" uid="uid://s2c8gxh7j2yk" path="res://Scripts/interaction_manager.gd" id="1_g12pu"]
+[ext_resource type="Script" uid="uid://s2c8gxh7j2yk" path="res://Scripts/interaction_manager.gd" id="1_j2ynk"]
+[ext_resource type="FontFile" uid="uid://d0pmk2uj4ebvt" path="res://Assets/Fonts/PixelOperator8.ttf" id="2_mveuy"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_g12pu"]
-font = ExtResource("1_g2bjo")
+font = ExtResource("2_mveuy")
 font_size = 8
 outline_size = 2
 outline_color = Color(0, 0, 0, 1)
 
 [node name="InteractionManager" type="Node2D"]
-script = ExtResource("1_g12pu")
+script = ExtResource("1_j2ynk")
 
 [node name="Label" type="Label" parent="."]
 z_index = 20

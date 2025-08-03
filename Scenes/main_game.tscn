@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://tq115vvlrdls"]
+[gd_scene load_steps=10 format=3 uid="uid://tq115vvlrdls"]
 
+[ext_resource type="Script" uid="uid://gyu1dbos21gp" path="res://Scripts/main_game.gd" id="1_bb2iq"]
 [ext_resource type="PackedScene" uid="uid://da22wgk8ysd1k" path="res://Scenes/Player.tscn" id="1_l756w"]
 [ext_resource type="PackedScene" uid="uid://d30vlb7o58tk3" path="res://Scenes/Platform.tscn" id="2_pu3va"]
 [ext_resource type="PackedScene" uid="uid://db6sliq1hn258" path="res://Scenes/coin.tscn" id="3_0e3vx"]
 [ext_resource type="PackedScene" uid="uid://bdjid4r8e83sc" path="res://Scenes/test_interactable.tscn" id="4_6j5ir"]
+[ext_resource type="PackedScene" uid="uid://bul8a3rn5sg8e" path="res://Scenes/Interactables/door.tscn" id="5_mgc0q"]
 
 [sub_resource type="Animation" id="Animation_pu3va"]
 resource_name = "PlatformMove"
@@ -44,12 +46,16 @@ _data = {
 }
 
 [node name="MainGame" type="Node2D"]
+script = ExtResource("1_bb2iq")
 
 [node name="Player" parent="." instance=ExtResource("1_l756w")]
-position = Vector2(1, -12)
+position = Vector2(1, -10)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(4, 4)
+limit_left = -213
+limit_right = 213
+limit_bottom = 30
 
 [node name="Platform" parent="." instance=ExtResource("2_pu3va")]
 position = Vector2(0, 25)
@@ -78,3 +84,21 @@ scale = Vector2(0.2, 0.2)
 [node name="TestInteractable2" parent="." instance=ExtResource("4_6j5ir")]
 position = Vector2(30, -14)
 scale = Vector2(0.2, 0.2)
+
+[node name="Door" parent="." instance=ExtResource("5_mgc0q")]
+position = Vector2(-38, -11)
+dest_scene = "uid://bgny6w6gryay4"
+
+[node name="Door2" parent="." instance=ExtResource("5_mgc0q")]
+position = Vector2(-128, -11)
+dest_scene = "uid://c4qgqw2a03h3g"
+
+[node name="Platform3" parent="." instance=ExtResource("2_pu3va")]
+position = Vector2(213, -31)
+rotation = -1.5708
+scale = Vector2(1.28, 0.24)
+
+[node name="Platform4" parent="." instance=ExtResource("2_pu3va")]
+position = Vector2(-213, -31)
+rotation = 1.5708
+scale = Vector2(1.28, 0.24)
